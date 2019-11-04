@@ -1,12 +1,12 @@
 const $botaoCriar = document.querySelector('[data-js="botao-criar"]');
-const $tarefa = document.querySelector('[data-js="input-tarefa"]');
-const $coisasFazer = document.querySelector('[data-js="coisas-fazer"]');
-const $coisasFeitas = document.querySelector('[data-js="coisas-feitas"]');
+const $inputTarefa = document.querySelector('[data-js="input-tarefa"]');
+const $painelTarefasPendentes = document.querySelector('[data-js="coisas-fazer"]');
+const $painelTarefasConcluidas = document.querySelector('[data-js="coisas-feitas"]');
 
-let tarefas = [];
-let feitos = []
+let tarefasPendentes = [];
+let tarefasConcluidas = []
 
-const $botoesPendentes = '<div><button class="to-completed" onclick=deletar(this)> ✘ </button><button class="conclude" onclick=completar(this)> ✔ </button></div>';
+const botoesPendentes = '<div><button class="to-completed" onclick=deletar(this)> ✘ </button><button class="conclude" onclick=completar(this)> ✔ </button></div>';
 
 $botaoCriar.addEventListener('click', function () {
   event.preventDefault();
@@ -24,49 +24,47 @@ function geraId() {
 function addTarefa() {
   const tarefa = {
     id: geraId(),
-    descricao: $tarefa.value
+    descricao: $inputTarefa.value
   }
-  tarefas.push(tarefa);
-  $tarefa.value = "";
-  atualizaTelaPendente()
+  tarefasPendentes.push(tarefa);
+  $inputTarefa.value = "";
+  atualizaPainelPendentes()
 }
 
-function atualizaTelaPendente() {
+function atualizaPainelPendentes() {
   let lista = '<ul class="tarefas-pendentes-ul">';
-  tarefas.forEach((item) => {
-    lista += `<li data-id=${item.id}><p>${item.descricao}</p>${$botoesPendentes}</li>`
+  tarefasPendentes.forEach((item) => {
+    lista += `<li data-id=${item.id}><p>${item.descricao}</p>${botoesPendentes}</li>`
   });
   lista += '<ul>';
-  $coisasFazer.innerHTML = lista;
+  $painelTarefasPendentes.innerHTML = lista;
 }
 
-
-function atualizaTelaConcluidos() {
+function atualizaPainelConcluidas() {
   let lista = '<ul>'
-  feitos.forEach(item => {
+  tarefasConcluidas.forEach(item => {
     lista += `<li data-id=${item.id}> ${item[0].descricao} <span class="span-completed"> ✔ </span></li>`
   })
   lista += '</ul>'
-  $coisasFeitas.innerHTML = lista;
+  $painelTarefasConcluidas.innerHTML = lista;
 }
-
 
 function deletar(element) {
   const idExcluir = element.parentElement.parentElement.getAttribute('data-id');
-  const novasTarefas = tarefas.filter(item => {
+  const novasTarefas = tarefasPendentes.filter(item => {
     return item.id != idExcluir;
   })
-  tarefas = novasTarefas;
-  atualizaTelaPendente()
+  tarefasPendentes = novasTarefas;
+  atualizaPainelPendentes()
 }
 
 function completar(element) {
-  const idCompletar = element.parentElement.parentElement.getAttribute('data-id');
-  const itemCompleto = tarefas.filter(item => {
-    return item.id == idCompletar;
+  const idItemCompleto = element.parentElement.parentElement.getAttribute('data-id');
+  const itemCompleto = tarefasPendentes.filter(item => {
+    return item.id == idItemCompleto;
   })
-  feitos.push(itemCompleto)
+  tarefasConcluidas.push(itemCompleto)
   deletar(element)
-  atualizaTelaPendente()
-  atualizaTelaConcluidos()
+  atualizaPainelPendentes()
+  atualizaPainelConcluidas()
 }
