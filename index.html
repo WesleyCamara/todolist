@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf08">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>To Do list</title>
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans|Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+
+
+
+    <main class="principal container">
+
+    <section class="add-tarefa">
+      <form>
+        <label type="text" for="tarefa">Adicionar tarefa</label>
+        <input id="tarefa" placeholder="Ex. Comer bolo" data-js="input-tarefa" >
+        <button class="botao-criar" type="submit" data-js="botao-criar">Criar</button>
+      </form>
+    </section>
+
+
+    <section class="to-do">
+      <h1>Coisas para fazer</h1>
+      <div class="tarefas-pendentes-ul" data-js="coisas-fazer">
+              </div>
+
+    </section>
+
+
+
+    <section class="completed">
+        <h1>Atividades concluídas</h1>
+        <div class="tarefas-concluidas-ul" data-js="coisas-feitas">
+        </div>
+      </section>
+
+      </main>
+
+
+  <script src='js/script.js'></script>
+</body>
+
+</html>
