@@ -47,7 +47,6 @@
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    background: red;
   }
   .add-tarefa form, .add-tarefa form label, .add-tarefa form input {
     -webkit-box-flex: 1;
