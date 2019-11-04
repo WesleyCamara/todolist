@@ -1,12 +1,12 @@
 const $botaoCriar = document.querySelector('[data-js="botao-criar"]');
 const $inputTarefa = document.querySelector('[data-js="input-tarefa"]');
-const $painelTarefasPendentes = document.querySelector('[data-js="coisas-fazer"]');
-const $painelTarefasConcluidas = document.querySelector('[data-js="coisas-feitas"]');
+const $painelTarefasPendentes = document.querySelector('[data-js="tarefas-pendentes"]');
+const $painelTarefasConcluidas = document.querySelector('[data-js="tarefas-concluidas"]');
 
 let tarefasPendentes = [];
 let tarefasConcluidas = []
 
-const botoesPendentes = '<div><button class="to-completed" onclick=deletar(this)> ✘ </button><button class="conclude" onclick=completar(this)> ✔ </button></div>';
+const botoesPendentes = '<div><button class="botao-deletar" onclick=deletar(this)> ✘ </button><button class="botao-completar" onclick=completar(this)> ✔ </button></div>';
 
 $botaoCriar.addEventListener('click', function () {
   event.preventDefault();
@@ -28,7 +28,7 @@ function addTarefa() {
   }
   tarefasPendentes.push(tarefa);
   $inputTarefa.value = "";
-  atualizaPainelPendentes()
+  atualizaPainelPendentes();
 }
 
 function atualizaPainelPendentes() {
@@ -41,11 +41,11 @@ function atualizaPainelPendentes() {
 }
 
 function atualizaPainelConcluidas() {
-  let lista = '<ul>'
+  let lista = '<ul class="tarefas-concluidas-ul">';
   tarefasConcluidas.forEach(item => {
-    lista += `<li data-id=${item.id}> ${item[0].descricao} <span class="span-completed"> ✔ </span></li>`
-  })
-  lista += '</ul>'
+    lista += `<li data-id=${item[0].id}><p> ${item[0].descricao}</p> <span class="span"> ✔ </span></li>`
+  });
+  lista += '</ul>';
   $painelTarefasConcluidas.innerHTML = lista;
 }
 

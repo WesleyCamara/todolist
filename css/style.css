@@ -39,6 +39,23 @@
   border-radius: 2px;
 }
 
+@media only screen and (max-width: 850px) {
+  .add-tarefa {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    background: red;
+  }
+  .add-tarefa form, .add-tarefa form label, .add-tarefa form input {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+  }
+}
+
 .add-tarefa form {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -81,8 +98,8 @@
   background: #77c3f2;
 }
 
-.to-do,
-.completed {
+.pendentes,
+.concluidas {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -98,8 +115,8 @@
   border-radius: 2px;
 }
 
-.to-do h1,
-.completed h1 {
+.pendentes h1,
+.concluidas h1 {
   font-family: "IBM Plex Sans", sans-serif;
   font-size: 24px;
   font-weight: bold;
@@ -110,7 +127,7 @@
   padding: 10px;
 }
 
-.completed h1 {
+.concluidas h1 {
   color: #078c03;
 }
 
@@ -124,8 +141,8 @@ h1::after {
   top: 10px;
 }
 
-.tarefas-pendentes-ul,
-.tarefas-concluidas-ul {
+.tarefas-pendentes,
+.tarefas-concluidas {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -138,23 +155,23 @@ h1::after {
           justify-content: center;
   width: 100%;
   padding: 10px;
+  padding-top: 0;
 }
 
-.tarefas-pendentes-ul li,
-.tarefas-concluidas-ul li {
+.tarefas-pendentes li,
+.tarefas-concluidas li {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  text-align: flex-end;
-  font-size: "Roboto", sans-serif;
+  font-size: 18px;
   color: #002525;
   border-bottom: #fff solid 1px;
 }
 
-.tarefas-pendentes-ul li p {
+.tarefas-pendentes-ul li p, .tarefas-concluidas-ul li p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -162,9 +179,10 @@ h1::after {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-left: 5px;
 }
 
-.to-completed, .conclude {
+.botao-deletar, .botao-completar {
   font-size: 26px;
   color: #ff6347;
   background-color: #dcecf2;
@@ -173,7 +191,18 @@ h1::after {
   margin-left: 10px;
 }
 
-.conclude {
+.botao-completar {
   color: #078c03;
+}
+
+.span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 40px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 10px;
 }
 /*# sourceMappingURL=style.css.map */

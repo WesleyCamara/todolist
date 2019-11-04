@@ -39,6 +39,18 @@ $fonte-titulo: "IBM Plex Sans", sans-serif;
   border-radius: 2px;
 }
 
+@media only screen and (max-width: 850px) {
+  .add-tarefa {
+    flex-wrap: wrap;
+    flex-direction: column;
+    background: red;
+  }
+  .add-tarefa form, .add-tarefa form label, .add-tarefa form input{
+    flex: 1;
+  }
+
+}
+
 .add-tarefa form {
   display: flex;
   align-items: center;
@@ -72,8 +84,8 @@ $fonte-titulo: "IBM Plex Sans", sans-serif;
   background: $cor-elementos;
 }
 
-.to-do,
-.completed {
+.pendentes,
+.concluidas {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -84,8 +96,8 @@ $fonte-titulo: "IBM Plex Sans", sans-serif;
   border-radius: 2px;
 }
 
-.to-do h1,
-.completed h1 {
+.pendentes h1,
+.concluidas h1 {
   font-family: $fonte-titulo;
   font-size: $tamanho-fonte-titulo;
   font-weight: bold;
@@ -96,7 +108,7 @@ $fonte-titulo: "IBM Plex Sans", sans-serif;
   padding: 10px;
 }
 
-.completed h1 {
+.concluidas h1 {
   color: $cor-positivo;
 }
 
@@ -110,41 +122,49 @@ h1::after {
   top: 10px;
 }
 
-.tarefas-pendentes-ul,
-.tarefas-concluidas-ul {
+.tarefas-pendentes,
+.tarefas-concluidas{
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 100%;
   padding: 10px;
+  padding-top: 0;
 }
 
-.tarefas-pendentes-ul li,
-.tarefas-concluidas-ul li {
+.tarefas-pendentes li,
+.tarefas-concluidas li {
   display: flex;
   justify-content: space-between;
-  text-align: flex-end;
-  font-size: $fonte-normal;
+  
+  font-size: $tamanho-fonte-tarefa;
   color: $cor-padrao;
   border-bottom: #fff solid 1px;
 }
 
-.tarefas-pendentes-ul li p{
+.tarefas-pendentes-ul li p, .tarefas-concluidas-ul li p{
   display: flex;
   height: 40px;
   align-items: center;
+  margin-left: 5px;
 }
 
-.to-completed, .conclude {
+.botao-deletar, .botao-completar {
   font-size: 26px;
   color: $cor-pendente;
   background-color: $cor-fundo;
   width: 40px;
   height: 40px;
   margin-left: 10px;
-
 }
 
-.conclude {
+.botao-completar {
   color: $cor-positivo;
+}
+
+.span {
+  display: flex;
+  height: 40px;
+  align-items: center;
+  margin-right: 10px;
 }
