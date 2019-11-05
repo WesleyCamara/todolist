@@ -30,6 +30,7 @@ $fonte-titulo: "IBM Plex Sans", sans-serif;
 
 .add-tarefa {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   background-color: $cor-fundo;
@@ -41,7 +42,6 @@ $fonte-titulo: "IBM Plex Sans", sans-serif;
 
 @media only screen and (max-width: 850px) {
   .add-tarefa {
-    flex-wrap: wrap;
     flex-direction: column;
   }
   .add-tarefa form, .add-tarefa form label, .add-tarefa form input{
@@ -134,8 +134,8 @@ h1::after {
 .tarefas-pendentes li,
 .tarefas-concluidas li {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
-  
   font-size: $tamanho-fonte-tarefa;
   color: $cor-padrao;
   border-bottom: #fff solid 1px;
