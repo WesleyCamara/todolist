@@ -6,7 +6,7 @@ const $painelTarefasConcluidas = document.querySelector('[data-js="tarefas-concl
 let tarefasPendentes = [];
 let tarefasConcluidas = []
 
-const botoesPendentes = '<div><button class="botao-deletar" onclick=deletar(this)> ✘ </button><button class="botao-completar" onclick=completar(this)> ✔ </button></div>';
+const botoesPendentes = '<div class="botoes"><button class="botao-deletar" onclick=deletar(this)> ✘ </button><button class="botao-completar" onclick=completar(this)> ✔ </button></div>';
 
 $botaoCriar.addEventListener('click', function () {
   event.preventDefault();

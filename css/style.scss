@@ -28,61 +28,53 @@ $fonte-titulo: "IBM Plex Sans", sans-serif;
   max-width: 90%;
 }
 
+  // Adiciona as tarefas novas *******************************************************************************************************
+
 .add-tarefa {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
   justify-content: center;
   background-color: $cor-fundo;
-  width: 90%;
-  height: 70px;
+  width: 100%;
   margin: 30px 0;
   border-radius: 2px;
 }
 
-@media only screen and (max-width: 850px) {
-  .add-tarefa {
-    flex-direction: column;
-  }
-  .add-tarefa form, .add-tarefa form label, .add-tarefa form input{
-    flex: 1;
-  }
-
-}
-
 .add-tarefa form {
   display: flex;
+  justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
-  margin: 5px;
+  width: 100%;
+  padding: 15px;
+  
 }
 
-.add-tarefa form label {
+.add-tarefa form label p{
+  display: flex;
+  justify-content: center;
   font-family: $fonte-titulo;
   font-size: $tamanho-fonte-titulo;
   font-weight: bold;
-  width: 200px;
 }
 
 .add-tarefa form input {
   display: flex;
-  align-items: center;
   font-family: $fonte-normal;
   font-size: $tamanho-fonte-tarefa;
-  margin: 15px;
   padding: 5px;
-  width: 300px;
-}
+  width: 60%;
+  margin-left: 15px;
+  }
 
 .add-tarefa form button {
   font-family: $fonte-normal;
   font-size: $tamanho-fonte-tarefa;
-  margin: 15px;
   padding: 5px;
+  margin-left: 15px;
   width: 100px;
   background: $cor-elementos;
 }
 
+  // Lista de tarefas pendentes e concluidas *******************************************************************************************************
 .pendentes,
 .concluidas {
   display: flex;
@@ -131,8 +123,7 @@ h1::after {
   padding-top: 0;
 }
 
-.tarefas-pendentes li,
-.tarefas-concluidas li {
+.tarefas-pendentes li, .tarefas-concluidas li {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -148,6 +139,8 @@ h1::after {
   margin-left: 5px;
 }
 
+
+  // Estilo dos botoes *******************************************************************************************************
 .botao-deletar, .botao-completar {
   font-size: 26px;
   color: $cor-pendente;
@@ -166,4 +159,22 @@ h1::after {
   height: 40px;
   align-items: center;
   margin-right: 10px;
+}
+
+
+
+
+  // Estilização do responsivo  *******************************************************************************************************
+
+@media only screen and (max-width: 850px) {
+  .add-tarefa form{
+    flex-direction: column;
+  }
+  .botoes{
+    margin: 0 auto;
+  }
+  .tarefas-pendentes li,
+.tarefas-concluidas li {
+  flex-direction: column;
+}
 }

@@ -26,73 +26,57 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   background-color: #dcecf2;
-  width: 90%;
-  height: 70px;
+  width: 100%;
   margin: 30px 0;
   border-radius: 2px;
-}
-
-@media only screen and (max-width: 850px) {
-  .add-tarefa {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
-  .add-tarefa form, .add-tarefa form label, .add-tarefa form input {
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
-  }
 }
 
 .add-tarefa form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  margin: 5px;
+  width: 100%;
+  padding: 15px;
 }
 
-.add-tarefa form label {
+.add-tarefa form label p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   font-family: "IBM Plex Sans", sans-serif;
   font-size: 24px;
   font-weight: bold;
-  width: 200px;
 }
 
 .add-tarefa form input {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   font-family: "Roboto", sans-serif;
   font-size: 18px;
-  margin: 15px;
   padding: 5px;
-  width: 300px;
+  width: 60%;
+  margin-left: 15px;
 }
 
 .add-tarefa form button {
   font-family: "Roboto", sans-serif;
   font-size: 18px;
-  margin: 15px;
   padding: 5px;
+  margin-left: 15px;
   width: 100px;
   background: #77c3f2;
 }
@@ -157,8 +141,7 @@ h1::after {
   padding-top: 0;
 }
 
-.tarefas-pendentes li,
-.tarefas-concluidas li {
+.tarefas-pendentes li, .tarefas-concluidas li {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -205,5 +188,24 @@ h1::after {
       -ms-flex-align: center;
           align-items: center;
   margin-right: 10px;
+}
+
+@media only screen and (max-width: 850px) {
+  .add-tarefa form {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .botoes {
+    margin: 0 auto;
+  }
+  .tarefas-pendentes li,
+  .tarefas-concluidas li {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
 }
 /*# sourceMappingURL=style.css.map */
