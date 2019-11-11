@@ -138,12 +138,11 @@ h1::after {
   padding-top: 0;
 }
 
-.tarefas-pendentes li, .tarefas-concluidas li {
+.tarefas-pendentes li,
+.tarefas-concluidas li {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -152,7 +151,8 @@ h1::after {
   border-bottom: #fff solid 1px;
 }
 
-.tarefas-pendentes-ul li p, .tarefas-concluidas-ul li p {
+.tarefas-pendentes-ul li p,
+.tarefas-concluidas-ul li p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -163,7 +163,8 @@ h1::after {
   margin-left: 5px;
 }
 
-.botao-deletar, .botao-completar {
+.botao-deletar,
+.botao-completar {
   font-size: 26px;
   color: #ff6347;
   background-color: #dcecf2;
@@ -185,5 +186,24 @@ h1::after {
       -ms-flex-align: center;
           align-items: center;
   margin-right: 10px;
+}
+
+.botoes {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.limpar-historico {
+  background: #ff6347;
+  width: 200px;
+  padding: 15px;
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.limpar-historico p {
+  font-size: 18px;
 }
 /*# sourceMappingURL=geral.css.map */

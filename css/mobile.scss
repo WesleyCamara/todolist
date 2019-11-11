@@ -24,8 +24,15 @@
   .botoes {
     margin: 0 auto;
   }
-  .tarefas-pendentes li,
-  .tarefas-concluidas li {
+  .tarefas-pendentes li, .tarefas-concluidas li{
     flex-direction: column;
   }
+  .tarefas-pendentes li p, .tarefas-concluidas li p{
+    text-align: center;
+    margin-top: 5px;
+  }
+  .span {
+    margin: 0 auto;
+  }
+  
 }
