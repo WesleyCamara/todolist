@@ -1,0 +1,162 @@
+$cor-fundo: #dcecf2;
+$cor-positivo: #078c03;
+$cor-pendente: #ff6347;
+$cor-padrao: #002525;
+$cor-elementos: #77c3f2;
+
+$tamanho-fonte-titulo: 24px;
+$tamanho-fonte-tarefa: 18px;
+
+$fonte-normal: "Roboto", sans-serif;
+$fonte-titulo: "IBM Plex Sans", sans-serif;
+
+* {
+  box-sizing: border-box;
+  border: none;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  font-weight: normal;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 90%;
+
+}
+
+  // Adiciona as tarefas novas *******************************************************************************************************
+
+.add-tarefa {
+  display: flex;
+  justify-content: center;
+  background-color: $cor-fundo;
+  width: 100%;
+  margin: 30px 0;
+  border-radius: 2px;
+}
+
+.add-tarefa form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 25px;
+}
+
+.add-tarefa form label p{
+  display: flex;
+  justify-content: center;
+  font-family: $fonte-titulo;
+  font-size: $tamanho-fonte-titulo;
+  font-weight: bold;
+}
+
+.add-tarefa form input {
+  display: flex;
+  font-family: $fonte-normal;
+  font-size: $tamanho-fonte-tarefa;
+  padding: 5px;
+  width: 60%;
+  margin-left: 15px;
+  }
+
+.add-tarefa form button {
+  font-family: $fonte-normal;
+  font-size: $tamanho-fonte-tarefa;
+  padding: 5px;
+  margin-left: 15px;
+  width: 100px;
+  background: $cor-elementos;
+}
+
+  // Lista de tarefas pendentes e concluidas *******************************************************************************************************
+.pendentes,
+.concluidas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: $cor-fundo;
+  width: 90%;
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+  border-radius: 2px;
+}
+
+.pendentes h1,
+.concluidas h1 {
+  font-family: $fonte-titulo;
+  font-size: $tamanho-fonte-titulo;
+  font-weight: bold;
+  color: $cor-pendente;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+}
+
+.concluidas h1 {
+  color: $cor-positivo;
+}
+
+h1::after {
+  content: "";
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: #fff;
+  position: relative;
+  top: 10px;
+}
+
+.tarefas-pendentes,
+.tarefas-concluidas{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  padding: 10px;
+  padding-top: 0;
+}
+
+.tarefas-pendentes li, .tarefas-concluidas li {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-size: $tamanho-fonte-tarefa;
+  color: $cor-padrao;
+  border-bottom: #fff solid 1px;
+}
+
+.tarefas-pendentes-ul li p, .tarefas-concluidas-ul li p{
+  display: flex;
+  height: 40px;
+  align-items: center;
+  margin-left: 5px;
+}
+
+
+  // Estilo dos botoes *******************************************************************************************************
+.botao-deletar, .botao-completar {
+  font-size: 26px;
+  color: $cor-pendente;
+  background-color: $cor-fundo;
+  width: 40px;
+  height: 40px;
+  margin-left: 10px;
+}
+
+.botao-completar {
+  color: $cor-positivo;
+}
+
+.span {
+  display: flex;
+  height: 40px;
+  align-items: center;
+  margin-right: 10px;
+}
