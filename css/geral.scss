@@ -79,9 +79,9 @@ $fonte-titulo: "IBM Plex Sans", sans-serif;
 .concluidas {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  // justify-content: center;
   background-color: $cor-fundo;
-  width: 90%;
+  width: 100%;
   margin-bottom: 30px;
   padding-bottom: 10px;
   border-radius: 2px;
@@ -134,7 +134,7 @@ h1::after {
 
 .tarefas-pendentes-ul li p, .tarefas-concluidas-ul li p{
   display: flex;
-  height: 40px;
+  min-height: 40px;
   align-items: center;
   margin-left: 5px;
 }

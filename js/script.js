@@ -13,6 +13,19 @@ $botaoCriar.addEventListener('click', function () {
   addTarefa()
 })
 
+if (localStorage.listaPendentes){
+atualizaPainelPendentes()}
+if (localStorage.listaConcluidos){
+  atualizaPainelConcluidos()
+}
+
+
+function salvarLista (chave, valor){
+  localStorage[chave] = valor;
+}
+
+
+
 function geraId() {
   const time = new Date();
   const id = '' + time.getMinutes() +
@@ -28,34 +41,48 @@ function addTarefa() {
   }
   tarefasPendentes.push(tarefa);
   $inputTarefa.value = "";
+
+  adicionaValorPendente();
   atualizaPainelPendentes();
 }
 
-function atualizaPainelPendentes() {
+function adicionaValorPendente(){
   let lista = '<ul class="tarefas-pendentes-ul">';
   tarefasPendentes.forEach((item) => {
     lista += `<li data-id=${item.id}><p>${item.descricao}</p>${botoesPendentes}</li>`
   });
   lista += '<ul>';
-  $painelTarefasPendentes.innerHTML = lista;
-}
 
-function atualizaPainelConcluidas() {
+  salvarLista('listaPendentes', lista);
+  }
+
+function adicionaValorConcluido() {
   let lista = '<ul class="tarefas-concluidas-ul">';
   tarefasConcluidas.forEach(item => {
     lista += `<li data-id=${item[0].id}><p> ${item[0].descricao}</p> <span class="span"> ✔ </span></li>`
   });
   lista += '</ul>';
-  $painelTarefasConcluidas.innerHTML = lista;
+
+  salvarLista('listaConcluidos', lista);
+}
+
+function atualizaPainelPendentes() {
+  $painelTarefasPendentes.innerHTML = localStorage.listaPendentes;
+}
+function atualizaPainelConcluidos() {
+$painelTarefasConcluidas.innerHTML = localStorage.listaConcluidos;
 }
 
 function deletar(element) {
+
   const idExcluir = element.parentElement.parentElement.getAttribute('data-id');
   const novasTarefas = tarefasPendentes.filter(item => {
     return item.id != idExcluir;
   })
   tarefasPendentes = novasTarefas;
-  atualizaPainelPendentes()
+
+  adicionaValorPendente();
+  atualizaPainelPendentes();
 }
 
 function completar(element) {
@@ -65,6 +92,7 @@ function completar(element) {
   })
   tarefasConcluidas.push(itemCompleto)
   deletar(element)
-  atualizaPainelPendentes()
-  atualizaPainelConcluidas()
+  adicionaValorPendente()
+  adicionaValorConcluido()
+  atualizaPainelConcluidos()
 }

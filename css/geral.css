@@ -88,11 +88,8 @@
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   background-color: #dcecf2;
-  width: 90%;
+  width: 100%;
   margin-bottom: 30px;
   padding-bottom: 10px;
   border-radius: 2px;
@@ -159,7 +156,7 @@ h1::after {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: 40px;
+  min-height: 40px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
