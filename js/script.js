@@ -3,43 +3,25 @@ const $inputTarefa = document.querySelector('[data-js="input-tarefa"]')
 const $painelTarefasPendentes = document.querySelector('[data-js="tarefas-pendentes"]')
 const $painelTarefasConcluidas = document.querySelector('[data-js="tarefas-concluidas"]')
 const $limpar = document.querySelector('[data-js="limpar"]')
-
 const botoesPendentes = '<div class="botoes"><button class="botao-deletar" onclick=deletar(this)> ✘ </button><button class="botao-completar" onclick=completar(this)> ✔ </button></div>'
 
 let tarefasPendentes = []
 let tarefasConcluidas = []
 
-if (!!localStorage.pendente) {
-  tarefasPendentes = (JSON.parse(localStorage.pendente))
-}
-
-if (!!localStorage.concluido) {
-  tarefasConcluidas = (JSON.parse(localStorage.concluido))
-}
-
-if (localStorage.listaPendentes) {
-  atualizaPainelPendentes()
-}
-if (localStorage.listaConcluidos) {
-  atualizaPainelConcluidos()
-}
-
-$botaoCriar.addEventListener('click', function () {
+$botaoCriar.addEventListener('click', () => {
   event.preventDefault()
   addTarefa()
 })
 
-function salvarLista(chave, valor) {
-  localStorage[chave] = valor
-}
+$limpar.addEventListener('click', limpaHistorico) 
 
-function geraId() {
-  const time = new Date()
-  const id = '' + time.getMinutes() +
-    time.getSeconds() +
-    time.getMilliseconds()
-  return id;
-}
+function buscaStorage(){
+  !!localStorage.pendente ? tarefasPendentes = JSON.parse(localStorage.pendente) : ''
+  !!localStorage.concluido ? tarefasConcluidas = JSON.parse(localStorage.concluido) : ''
+  localStorage.listaPendentes ? atualizaPainelPendentes() : ''
+  localStorage.listaConcluidos ? atualizaPainelConcluidos() : ''
+  }
+  buscaStorage()
 
 function addTarefa() {
   const tarefa = {
@@ -107,4 +89,24 @@ function completar(element) {
   adicionaValorPendente()
   adicionaValorConcluido()
   atualizaPainelConcluidos()
+}
+
+function limpaHistorico(){
+console.log('limpou')
+localStorage.removeItem('concluido')
+localStorage.removeItem('listaConcluidos')
+tarefasConcluidas = []
+$painelTarefasConcluidas.innerHTML = ''
+}
+
+function salvarLista(chave, valor) {
+  localStorage[chave] = valor
+}
+
+function geraId() {
+  const time = new Date()
+  const id = '' + time.getMinutes() +
+    time.getSeconds() +
+    time.getMilliseconds()
+  return id;
 }
