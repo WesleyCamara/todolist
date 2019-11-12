@@ -4,13 +4,18 @@ const $painelTarefasPendentes = document.querySelector('[data-js="tarefas-penden
 const $painelTarefasConcluidas = document.querySelector('[data-js="tarefas-concluidas"]')
 const $limpar = document.querySelector('[data-js="limpar"]')
 
-let tarefasPendentes = []
-let tarefasConcluidas =[]
-
-
-
-
 const botoesPendentes = '<div class="botoes"><button class="botao-deletar" onclick=deletar(this)> ✘ </button><button class="botao-completar" onclick=completar(this)> ✔ </button></div>'
+
+let tarefasPendentes = []
+let tarefasConcluidas = []
+
+if (!!localStorage.pendente) {
+  tarefasPendentes = (JSON.parse(localStorage.pendente))
+}
+
+if (!!localStorage.concluido) {
+  tarefasConcluidas = (JSON.parse(localStorage.concluido))
+}
 
 if (localStorage.listaPendentes) {
   atualizaPainelPendentes()
@@ -23,7 +28,6 @@ $botaoCriar.addEventListener('click', function () {
   event.preventDefault()
   addTarefa()
 })
-
 
 function salvarLista(chave, valor) {
   localStorage[chave] = valor
@@ -99,8 +103,8 @@ function completar(element) {
   tarefasConcluidas.push(itemCompleto)
 
   deletar(element)
+  salvarLista('concluido', JSON.stringify(tarefasConcluidas))
   adicionaValorPendente()
   adicionaValorConcluido()
   atualizaPainelConcluidos()
 }
-
