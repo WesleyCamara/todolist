@@ -38,7 +38,9 @@
             flex-direction: column;
   }
   .tarefas-pendentes li p, .tarefas-concluidas li p {
+    display: inline-block;
     text-align: center;
+    min-height: 30px;
     margin-top: 5px;
   }
   .span {
