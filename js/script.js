@@ -8,6 +8,8 @@ const botoesPendentes = '<div class="botoes"><button class="botao-deletar" oncli
 let tarefasPendentes = []
 let tarefasConcluidas = []
 
+document.getElementById("tarefa").focus();
+
 $botaoCriar.addEventListener('click', () => {
   event.preventDefault()
   addTarefa()
