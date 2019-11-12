@@ -7,7 +7,7 @@ const $limpar = document.querySelector('[data-js="limpar"]')
 let tarefasPendentes = []
 let tarefasConcluidas =[]
 
-tarefasPendentes = JSON.parse(localStorage.getItem('pendente'))
+
 
 
 const botoesPendentes = '<div class="botoes"><button class="botao-deletar" onclick=deletar(this)> ✘ </button><button class="botao-completar" onclick=completar(this)> ✔ </button></div>'
