@@ -1,3 +1,259 @@
-@import url("geral.css");
-@import url("mobile.css");
+@charset "UTF-8";
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: none;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  font-weight: normal;
+}
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 auto;
+  max-width: 90%;
+}
+
+.add-tarefa {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #dcecf2;
+  width: 100%;
+  margin: 30px 0;
+  border-radius: 2px;
+}
+
+.add-tarefa form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  padding: 25px;
+}
+
+.add-tarefa form label p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.add-tarefa form input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  padding: 5px;
+  width: 60%;
+  margin-left: 15px;
+}
+
+.add-tarefa form button {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  padding: 5px;
+  margin-left: 15px;
+  width: 100px;
+  background: #77c3f2;
+}
+
+.pendentes,
+.concluidas {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  background-color: #dcecf2;
+  width: 100%;
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+  border-radius: 2px;
+}
+
+.pendentes h1,
+.concluidas h1 {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  color: #ff6347;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+}
+
+.concluidas h1 {
+  color: #078c03;
+}
+
+h1::after {
+  content: "";
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: #fff;
+  position: relative;
+  top: 10px;
+}
+
+.tarefas-pendentes,
+.tarefas-concluidas {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  padding: 10px;
+  padding-top: 0;
+}
+
+.tarefas-pendentes li,
+.tarefas-concluidas li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-size: 18px;
+  color: #002525;
+  border-bottom: #fff solid 1px;
+}
+
+.tarefas-pendentes-ul li p,
+.tarefas-concluidas-ul li p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 40px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: 5px;
+}
+
+.botao-deletar,
+.botao-completar {
+  font-size: 26px;
+  color: #ff6347;
+  background-color: #dcecf2;
+  width: 40px;
+  height: 40px;
+  margin-left: 10px;
+}
+
+.botao-completar {
+  color: #078c03;
+}
+
+.span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 40px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 10px;
+}
+
+.botoes {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.limpar-historico {
+  background: #ff6347;
+  width: 200px;
+  padding: 15px;
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.limpar-historico p {
+  font-size: 18px;
+}
+
+/* Estilização do responsivo  ******************************************************************************************************* */
+@media only screen and (max-width: 893px) {
+  .add-tarefa form {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 0;
+  }
+  .add-tarefa form label p {
+    margin: 10px 0;
+  }
+  .add-tarefa form input {
+    width: 90%;
+    padding: 10px;
+    margin-left: 0;
+    margin-bottom: 15px;
+  }
+  .add-tarefa form button {
+    width: 35%;
+    padding: 10px;
+    margin-bottom: 15px;
+    margin-left: 0;
+  }
+  .botao-deletar, .botao-completar {
+    width: 50px;
+    margin-left: 10px;
+    padding-bottom: 5px;
+  }
+  .botoes {
+    margin: 0 auto;
+  }
+  .tarefas-pendentes li, .tarefas-concluidas li {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .tarefas-pendentes li p, .tarefas-concluidas li p {
+    display: inline-block;
+    text-align: center;
+    min-height: 30px;
+    margin-top: 5px;
+  }
+  .span {
+    margin: 0 auto;
+  }
+}
 /*# sourceMappingURL=style.css.map */
