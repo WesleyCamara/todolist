@@ -1,4 +1,4 @@
 
-Lista de tarefas feita para treinar HTMl, CSS e JS
+Lista de tarefas feita para treinar HTML, CSS e JS
 
-Disponivel em: https://wesleycamara.github.io/todolist/
+Disponível em: https://wesleycamara.github.io/todolist/
