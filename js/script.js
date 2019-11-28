@@ -94,7 +94,7 @@ function completar(element) {
 }
 
 function limpaHistorico(){
-console.log('limpou')
+event.preventDefault()
 localStorage.removeItem('concluido')
 localStorage.removeItem('listaConcluidos')
 tarefasConcluidas = []

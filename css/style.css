@@ -196,16 +196,21 @@ h1::after {
 }
 
 .limpar-historico {
+  display: block;
   background: #ff6347;
   width: 200px;
   padding: 15px;
   text-align: center;
-  margin: 0 auto;
   margin-bottom: 20px;
+  margin: 0 auto;
 }
 
 .limpar-historico p {
   font-size: 18px;
+}
+
+button {
+  cursor: pointer;
 }
 
 /* Estilização do responsivo  ******************************************************************************************************* */
